@@ -1,8 +1,13 @@
 FROM python:3.6-alpine
 
-RUN git clone https://github.com/intest-tech/qaadmin.git
+RUN apk add git \
+&& git clone https://github.com/intest-tech/qaadmin.git
 WORKDIR qaadmin
-RUN pip install pipenv \
-&& pipenv install
+RUN pip install pipenv -i https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pipenv install
 
-CMD ['python', 'manager.py', 'runserver']
+#CMD python3 manager.py runserver
+CMD pip list
+
+EXPOSE 5000
+
