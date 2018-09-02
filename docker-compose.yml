@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  qaadmin-server:
+    build: .
+    ports:
+      - "5000:5000"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+
+  mongo:
+    image: "mongo:4"
+    ports:
+      - "27017:27017"
+    volumes:
+      - qaadmin-data:/data/db
+
+volumes:
+  qaadmin-data:
