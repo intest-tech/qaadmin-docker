@@ -6,9 +6,9 @@ services:
     ports:
       - "5000:5000"
     links:
-      - mongo
+      - mongo-test
     depends_on:
-      - mongo
+      - mongo-test
 
   mongo:
     image: "mongo:4"
