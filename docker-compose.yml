@@ -10,7 +10,7 @@ services:
     depends_on:
       - mongo-test
 
-  mongo:
+  mongo-test:
     image: "mongo:4"
     ports:
       - "27017:27017"
